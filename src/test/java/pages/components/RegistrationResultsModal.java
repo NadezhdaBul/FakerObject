@@ -11,7 +11,7 @@ public class RegistrationResultsModal {
                 .shouldHave(text("Thanks for submitting the form"));
     }
 
-    public void formResoults(String key, String value) {
+    public void formResults(String key, String value) {
         $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
     }
 

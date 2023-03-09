@@ -15,7 +15,7 @@ public class RegistrationPage {
     private SelenideElement firstNameSelector = $("#firstName");
     private SelenideElement lastNameSelector = $("#lastName");
     private SelenideElement userEmailSelector = $("#userEmail");
-    private SelenideElement userGenterSelector = $("#genterWrapper");
+    private SelenideElement userGenderSelector = $("#genterWrapper");
     private SelenideElement userNumberSelector = $("#userNumber");
     private SelenideElement userSubjectsSelector = $("#subjectsInput");
     private SelenideElement userHobbiesSelector = $("#hobbiesWrapper");
@@ -50,8 +50,8 @@ public class RegistrationPage {
         userEmailSelector.setValue(value);
     }
 
-    public void clickUserGenter(String gender) {
-        userGenterSelector.$(byText(gender)).click();
+    public void clickUserGender(String gender) {
+        userGenderSelector.$(byText(gender)).click();
     }
 
     public void setUserNumber(String value) {
@@ -92,12 +92,12 @@ public class RegistrationPage {
         submitButton.click();
     }
 
-    public void verifyResoultsModal() {
+    public void verifyResultsModal() {
         registrationResultsModal.submittingForm();
     }
 
-    public void verifyResoults(String key, String value) {
-        registrationResultsModal.formResoults(key, value);
+    public void verifyResults(String key, String value) {
+        registrationResultsModal.formResults(key, value);
     }
 
     public void clickClose() {

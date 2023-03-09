@@ -51,7 +51,7 @@ public class FakerRegistrationTest {
         registrationPage.setFirstName(userName);
         registrationPage.setLastName(userLastName);
         registrationPage.setUserEmail(userEmail);
-        registrationPage.clickUserGenter(userGenter);
+        registrationPage.clickUserGender(userGenter);
         registrationPage.setUserNumber(userNumber);
         registrationPage.setBirthDay(userBirthDay_day, userBirthDay_month, userBirthDay_year);
         registrationPage.setSubjects(userSubjects);
@@ -63,16 +63,16 @@ public class FakerRegistrationTest {
 
         registrationPage.clickSubmit();
 
-        registrationPage.verifyResoultsModal();
-        registrationPage.verifyResoults("Student Name", userName + " " + userLastName);
-        registrationPage.verifyResoults("Student Email", userEmail);
-        registrationPage.verifyResoults("Gender", userGenter);
-        registrationPage.verifyResoults("Mobile", userNumber);
-        registrationPage.verifyResoults("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
-        registrationPage.verifyResoults("Subjects", userSubjects);
-        registrationPage.verifyResoults("Hobbies", userHobbies);
-        registrationPage.verifyResoults("Address", userAddress);
-        registrationPage.verifyResoults("State and City", userState + " " + userCity);
+        registrationPage.verifyResultsModal();
+        registrationPage.verifyResults("Student Name", userName + " " + userLastName);
+        registrationPage.verifyResults("Student Email", userEmail);
+        registrationPage.verifyResults("Gender", userGenter);
+        registrationPage.verifyResults("Mobile", userNumber);
+        registrationPage.verifyResults("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
+        registrationPage.verifyResults("Subjects", userSubjects);
+        registrationPage.verifyResults("Hobbies", userHobbies);
+        registrationPage.verifyResults("Address", userAddress);
+        registrationPage.verifyResults("State and City", userState + " " + userCity);
 
         registrationPage.clickClose();
 
