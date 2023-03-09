@@ -28,76 +28,79 @@ public class RegistrationPage {
     private SelenideElement closeButton = $("#closeLargeModal");
 
 
-    public void openPage () {
+    public void openPage() {
         open("https://demoqa.com/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(titleText));
+    }
+
+    public void executeJS() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
     }
 
-    public void setFirstName (String value) {
+    public void setFirstName(String value) {
         firstNameSelector.setValue(value);
     }
 
-    public void setLastName (String value) {
+    public void setLastName(String value) {
         lastNameSelector.setValue(value);
     }
 
-    public void setUserEmail (String value) {
+    public void setUserEmail(String value) {
         userEmailSelector.setValue(value);
     }
 
-    public void clickUserGenter (String gender) {
+    public void clickUserGenter(String gender) {
         userGenterSelector.$(byText(gender)).click();
     }
 
-    public void setUserNumber (String value) {
+    public void setUserNumber(String value) {
         userNumberSelector.setValue(value);
     }
 
-    public void setBirthDay (String day, String month, String year) {
+    public void setBirthDay(String day, String month, String year) {
         calendarComponent.setDate(day, month, year);
     }
 
-    public void setSubjects (String value) {
+    public void setSubjects(String value) {
         userSubjectsSelector.setValue(value).pressEnter();
     }
 
-    public void clickHobbies (String hobbies) {
+    public void clickHobbies(String hobbies) {
         userHobbiesSelector.$(byText(hobbies)).click();
     }
 
-    public void setPictures (String location) {
+    public void setPictures(String location) {
         userPictureSelector.uploadFromClasspath(location);
     }
 
-    public void setAddress (String value) {
+    public void setAddress(String value) {
         userCurrentAddress.setValue(value);
     }
 
-    public void setState (String value) {
+    public void setState(String value) {
         userState.click();
         userStateCityWrapper.$(byText(value)).click();
     }
 
-    public void setCity (String value) {
+    public void setCity(String value) {
         userCity.click();
         userStateCityWrapper.$(byText(value)).click();
     }
 
-    public void clickSubmit () {
+    public void clickSubmit() {
         submitButton.click();
     }
 
-    public void verifyResoultsModal () {
+    public void verifyResoultsModal() {
         registrationResultsModal.submittingForm();
     }
 
-    public void verifyResoults (String key, String value) {
+    public void verifyResoults(String key, String value) {
         registrationResultsModal.formResoults(key, value);
     }
 
-    public void clickClose () {
+    public void clickClose() {
         closeButton.click();
     }
 

@@ -14,64 +14,65 @@ public class FakerRegistrationTest {
     public void toolsQaForm () {
         Faker faker = new Faker();
 
-        String UserName = faker.name().firstName();
-        String UserLastName = faker.name().lastName();
-        String UserEmail = faker.internet().emailAddress();
-        String UserGenter = faker.options().option("Male", "Female", "Other");
-        String UserNumber = String.valueOf(faker.number().numberBetween(1000000000, 2009999999));
-        String UserBirthDay_day = String.valueOf(faker.number().numberBetween(1, 28));
-        String UserBirthDay_month = faker.options().option("January", "February",
+        String userName = faker.name().firstName();
+        String userLastName = faker.name().lastName();
+        String userEmail = faker.internet().emailAddress();
+        String userGenter = faker.options().option("Male", "Female", "Other");
+        String userNumber = String.valueOf(faker.number().numberBetween(1000000000, 2009999999));
+        String userBirthDay_day = String.valueOf(faker.number().numberBetween(1, 28));
+        String userBirthDay_month = faker.options().option("January", "February",
                 "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-        String UserBirthDay_year = String.valueOf(faker.number().numberBetween(1950, 2000));
-        String UserSubjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
+        String userBirthDay_year = String.valueOf(faker.number().numberBetween(1950, 2000));
+        String userSubjects = faker.options().option("English", "Physics", "Chemistry", "Computer Science",
                 "Commerce", "Accounting", "Economics");
-        String UserHobbies = faker.options().option("Music", "Sports", "Reading");
-        String UserPictureLocation = "pictures/3.png";
-        String UserAddress = faker.address().streetName();
-        String UserState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+        String userHobbies = faker.options().option("Music", "Sports", "Reading");
+        String userPictureLocation = "pictures/3.png";
+        String userAddress = faker.address().streetName();
+        String userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
 
 
         String city = new String();
-        if (UserState == "NCR") {
+        if (userState == "NCR") {
             city = faker.options().option("Delhi", "Gurgaon", "Noida");
-        } else if (UserState == "Uttar Pradesh") {
+        } else if (userState == "Uttar Pradesh") {
             city = faker.options().option("Agra", "Lucknow", "Merrut");
-        } else if (UserState == "Haryana") {
+        } else if (userState == "Haryana") {
             city = faker.options().option("Karnal", "Panipat");
         } else {
             city = faker.options().option("Jaipur", "Jaiselmer");
         }
 
-        String UserCity = city;
+        String userCity = city;
 
 
         registrationPage.openPage();
+        registrationPage.executeJS();
 
-        registrationPage.setFirstName(UserName);
-        registrationPage.setLastName(UserLastName);
-        registrationPage.setUserEmail(UserEmail);
-        registrationPage.clickUserGenter(UserGenter);
-        registrationPage.setUserNumber(UserNumber);
-        registrationPage.setBirthDay(UserBirthDay_day, UserBirthDay_month, UserBirthDay_year);
-        registrationPage.setSubjects(UserSubjects);
-        registrationPage.clickHobbies(UserHobbies);
-        registrationPage.setPictures(UserPictureLocation);
-        registrationPage.setAddress(UserAddress);
-        registrationPage.setState(UserState);
-        registrationPage.setCity(UserCity);
+        registrationPage.setFirstName(userName);
+        registrationPage.setLastName(userLastName);
+        registrationPage.setUserEmail(userEmail);
+        registrationPage.clickUserGenter(userGenter);
+        registrationPage.setUserNumber(userNumber);
+        registrationPage.setBirthDay(userBirthDay_day, userBirthDay_month, userBirthDay_year);
+        registrationPage.setSubjects(userSubjects);
+        registrationPage.clickHobbies(userHobbies);
+        registrationPage.setPictures(userPictureLocation);
+        registrationPage.setAddress(userAddress);
+        registrationPage.setState(userState);
+        registrationPage.setCity(userCity);
 
         registrationPage.clickSubmit();
 
         registrationPage.verifyResoultsModal();
-        registrationPage.verifyResoults("Student Name", UserName + " " + UserLastName);
-        registrationPage.verifyResoults("Student Email", UserEmail);
-        registrationPage.verifyResoults("Gender", UserGenter);
-        registrationPage.verifyResoults("Mobile", UserNumber);
-        registrationPage.verifyResoults("Date of Birth", UserBirthDay_day + " " + UserBirthDay_month + "," + UserBirthDay_year);
-        registrationPage.verifyResoults("Subjects", UserSubjects);
-        registrationPage.verifyResoults("Hobbies", UserHobbies);
-        registrationPage.verifyResoults("Address", UserAddress);
-        registrationPage.verifyResoults("State and City", UserState + " " + UserCity);
+        registrationPage.verifyResoults("Student Name", userName + " " + userLastName);
+        registrationPage.verifyResoults("Student Email", userEmail);
+        registrationPage.verifyResoults("Gender", userGenter);
+        registrationPage.verifyResoults("Mobile", userNumber);
+        registrationPage.verifyResoults("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
+        registrationPage.verifyResoults("Subjects", userSubjects);
+        registrationPage.verifyResoults("Hobbies", userHobbies);
+        registrationPage.verifyResoults("Address", userAddress);
+        registrationPage.verifyResoults("State and City", userState + " " + userCity);
 
         registrationPage.clickClose();
 
