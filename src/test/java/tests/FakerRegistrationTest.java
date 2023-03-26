@@ -12,6 +12,7 @@ public class FakerRegistrationTest {
 
     @Test
     @Tag("hw")
+
     public void toolsQaForm () {
         Faker faker = new Faker();
 
