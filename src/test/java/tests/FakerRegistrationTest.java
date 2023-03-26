@@ -1,8 +1,8 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
 import pages.RegistrationPage;
 
 
@@ -11,13 +11,14 @@ public class FakerRegistrationTest {
 
 
     @Test
+    @Tag("hw")
     public void toolsQaForm () {
         Faker faker = new Faker();
 
         String userName = faker.name().firstName();
         String userLastName = faker.name().lastName();
         String userEmail = faker.internet().emailAddress();
-        String userGenter = faker.options().option("Male", "Female", "Other");
+        String userGender = faker.options().option("Male", "Female", "Other");
         String userNumber = String.valueOf(faker.number().numberBetween(1000000000, 2009999999));
         String userBirthDay_day = String.valueOf(faker.number().numberBetween(1, 28));
         String userBirthDay_month = faker.options().option("January", "February",
@@ -51,7 +52,7 @@ public class FakerRegistrationTest {
         registrationPage.setFirstName(userName);
         registrationPage.setLastName(userLastName);
         registrationPage.setUserEmail(userEmail);
-        registrationPage.clickUserGender(userGenter);
+        registrationPage.clickUserGender(userGender);
         registrationPage.setUserNumber(userNumber);
         registrationPage.setBirthDay(userBirthDay_day, userBirthDay_month, userBirthDay_year);
         registrationPage.setSubjects(userSubjects);
@@ -66,7 +67,7 @@ public class FakerRegistrationTest {
         registrationPage.verifyResultsModal();
         registrationPage.verifyResults("Student Name", userName + " " + userLastName);
         registrationPage.verifyResults("Student Email", userEmail);
-        registrationPage.verifyResults("Gender", userGenter);
+        registrationPage.verifyResults("Gender", userGender);
         registrationPage.verifyResults("Mobile", userNumber);
         registrationPage.verifyResults("Date of Birth", userBirthDay_day + " " + userBirthDay_month + "," + userBirthDay_year);
         registrationPage.verifyResults("Subjects", userSubjects);

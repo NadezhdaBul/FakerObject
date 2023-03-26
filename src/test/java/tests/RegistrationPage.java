@@ -1,17 +1,17 @@
-package pages;
+package tests;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
-    private final String titleText = "Student Registration Form";
+    public static final String titleText = "Student Registration Form";
     private SelenideElement firstNameSelector = $("#firstName");
     private SelenideElement lastNameSelector = $("#lastName");
     private SelenideElement userEmailSelector = $("#userEmail");
@@ -28,13 +28,11 @@ public class RegistrationPage {
     private SelenideElement closeButton = $("#closeLargeModal");
 
 
-    public void openPage() {
-        open("https://demoqa.com/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text(titleText));
-
-
-
-    }
+//    public void openPage() {
+//        open("https://demoqa.com/automation-practice-form");
+//        $(".practice-form-wrapper").shouldHave(text(titleText));
+//
+//    }
 
     public void executeJS() {
         executeJavaScript("$('#fixedban').remove()");
